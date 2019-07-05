@@ -3,12 +3,16 @@ driver:
   name: docker
   use_sudo: false
   privileged: true
+  run_command: /lib/systemd/systemd
 
 provisioner:
   name: salt_solo
   log_level: warning
   require_chef: false
   formula: docker
+  salt_copy_filter:
+    - .kitchen
+    - .git
   state_top:
     base:
       '*':
@@ -21,6 +25,9 @@ provisioner:
           - docker
 
 platforms:
+  - name: ubuntu-1804-2019-2-py3
+        driver:
+          image: netmanagers/salt-2019.2-py3:ubuntu-18.04
   - name: ubuntu-18.04
     driver_config:
       provision_command:
