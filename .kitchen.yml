@@ -10,9 +10,9 @@ provisioner:
   log_level: warning
   require_chef: false
   formula: docker
-  salt_copy_filter:
-    - .kitchen
-    - .git
+#  salt_copy_filter:
+#    - .kitchen
+#    - .git
   state_top:
     base:
       '*':
