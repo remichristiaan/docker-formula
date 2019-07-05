@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
 ---
+# For help on this file's format, see https://kitchen.ci/
 driver:
   name: docker
   use_sudo: false
@@ -10,9 +13,6 @@ provisioner:
   log_level: warning
   require_chef: false
   formula: docker
-#  salt_copy_filter:
-#    - .kitchen
-#    - .git
   state_top:
     base:
       '*':
@@ -26,8 +26,8 @@ provisioner:
 
 platforms:
   - name: ubuntu-1804-2019-2-py3
-        driver:
-          image: netmanagers/salt-2019.2-py3:ubuntu-18.04
+    driver:
+      image: netmanagers/salt-2019.2-py3:ubuntu-18.04
   - name: ubuntu-18.04
     driver_config:
       provision_command:
